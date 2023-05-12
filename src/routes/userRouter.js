@@ -10,10 +10,13 @@ router.get('/user', userController.getAllUsers)
 //registrar novo usuário
 router.post('/user/register', userController.newUser)
 
+//deletar usuário
+router.post('/user/delete/:id', userController.removeUser)
+
 router.get('/product', productController.getAllProducts)
 router.get('/product/:authorId', productController.getProductsId)
 router.post('/product/create', productController.newProduct)
-router.delete('/product/remove/:id', productController.deleteProduct)
+router.delete('/product/delete/:id', productController.deleteProduct)
 router.put('/product/alterate/:id', productController.alterateProduct )
 
 

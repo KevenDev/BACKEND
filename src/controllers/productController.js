@@ -35,7 +35,6 @@ const deleteProduct = async(req,res) =>{
   const product = await prisma.product.delete({
     where:{
       id: Number(id)
-  
     }
   })
   console.log(id);
