@@ -1,5 +1,7 @@
 const express = require('express');
 const  userRoutes  = require('./src/routes/userRouter')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 const app = express()
 const cors = require('cors')
 app.use(express.json())
