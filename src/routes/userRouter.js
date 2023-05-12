@@ -1,16 +1,20 @@
 const  Router  = require("express");
 const userController = require("../controllers/userController");
+const productController =  require("../controllers/productController");
 const router = new Router()
 
+
+//listar todos os usuarios 
 router.get('/user', userController.getAllUsers)
 
-router.post('/user/create', userController.newUser)
+//registrar novo usuário
+router.post('/user/register', userController.newUser)
 
-router.get('/product', userController.getAllProducts)
-router.get('/product/:authorId', userController.getProductsId)
-router.post('/product/create', userController.newProduct)
-router.delete('/product/remove/:id', userController.deleteProduct)
-router.put('/product/alterate/:id', userController.alterateProduct )
+router.get('/product', productController.getAllProducts)
+router.get('/product/:authorId', productController.getProductsId)
+router.post('/product/create', productController.newProduct)
+router.delete('/product/remove/:id', productController.deleteProduct)
+router.put('/product/alterate/:id', productController.alterateProduct )
 
 
 module.exports = router
