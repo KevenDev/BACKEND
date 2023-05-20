@@ -12,18 +12,33 @@ datasource db {
 
 model User{
   id Int @id @default(autoincrement())
-  email String @unique
-  password String 
   name String
-  product Product[]
+  setor Setor @relation(fields: [fk_id_setor], references: [id])
+  fk_id_setor Int @unique
+
+  Telefone Telefone[]
+
+   @@map("user")
 }
 
-model Product{
+model Telefone{
+  id Int @id @default(autoincrement())
+  user User @relation(fields: [fk_id_user], references: [id])
+  setor Setor @relation(fields: [fk_id_setor], references: [id])
+  fk_id_user Int
+  fk_id_setor Int
+
+  @@map("telefone")
+}
+
+
+
+model Setor{
   id Int @id @default(autoincrement())
   name String
-  price Float
-  description String
-  img String?
-  author User @relation(fields: [authorId], references: [id])
-  authorId Int
+  user User?
+  Telefone Telefone[]
+  @@map("setor")
+
 }
+
